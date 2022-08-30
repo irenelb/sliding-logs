@@ -1,0 +1,12 @@
+README.md
+.vscode
+.npmignore
+docs
+node_modules
+npm-debug.log
+.env
+dist
+coverage
+backups
+.devcontainer
+.k8s

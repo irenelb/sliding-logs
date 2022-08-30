@@ -1,0 +1,15 @@
+@baseUri=http://localhost:3000
+
+###
+# @name SEND
+POST {{baseUri}}/_send HTTP/1.1
+Content-Type: application/json
+x-uid-sub: 987698698678
+x-request-id: 56465
+
+{
+  "id":"4534534543",
+  "data":4
+}
+
+###

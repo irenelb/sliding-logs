@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "ms-azuretools.vscode-docker",
+    "esbenp.prettier-vscode",
+    "editorconfig.editorconfig",
+    "usernamehw.errorlens",
+    "mhutchie.git-graph",
+    "eamodio.gitlens",
+    "nhoizey.gremlins",
+    "kavod-io.vscode-jest-test-adapter",
+    "christian-kohler.path-intellisense",
+    "johnpapa.vscode-peacock",
+    "humao.rest-client",
+    "hbenl.vscode-test-explorer",
+    "visualstudioexptteam.vscodeintellicode",
+    "pflannery.vscode-versionlens",
+    "redhat.vscode-yaml",
+    "ms-vscode-remote.remote-containers"
+  ]
+}

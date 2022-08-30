@@ -1,0 +1,9 @@
+version: '3.6'
+services:
+  mongo:
+    ports:
+      - 27017:27017
+  mongo-express:
+    ports:
+      - 8081:8081
+

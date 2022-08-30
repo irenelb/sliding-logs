@@ -1,0 +1,11 @@
+env: 'development' # [development , 'production']
+mongo:
+  options: {}
+  uris: 'mongodb://root:example@mongo:27017?authSource=admin'
+apis:
+  receiver: http://172.17.0.1:4000/receiver/_send
+slidingLogsInfo:
+  size: 20000 #20s
+  maxRequest: 10
+  
+

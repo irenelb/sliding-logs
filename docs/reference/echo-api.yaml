@@ -1,0 +1,26 @@
+openapi: 3.1.0
+info:
+  title: echo-api
+  version: '1.0'
+  description: api echo
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/echo/{message}':
+    get:
+      summary: GET echo
+      tags: []
+      responses:
+        '200':
+          description: OK
+      operationId: get-echo
+      description: echo api message
+    parameters:
+      - schema:
+          type: string
+        name: message
+        in: path
+        required: true
+        description: echo msg
+components:
+  schemas: {}

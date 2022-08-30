@@ -1,0 +1,64 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.140.1/containers/docker-from-docker-compose
+{
+  "name": "sliding-logs",
+  "dockerComposeFile": [
+    "../docker-compose.yml",
+    "docker-compose.yml",
+    "../docker-compose-services.yml",
+    "docker-compose-services.yml"
+  ],
+  "service": "sliding-logs",
+  "workspaceFolder": "/workspace",
+
+  // Use this environment variable if you need to bind mount your local source code into a new container.
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+
+  // Set *default* container specific settings.json values on container create.
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh"
+  },
+
+  // Add the IDs of extensions you want installed when the container is created.
+  "extensions": [
+    "ms-azuretools.vscode-docker",
+    "aaron-bond.better-comments",
+    "coenraads.bracket-pair-colorizer-2",
+    "mikestead.dotenv",
+    "wayou.vscode-todo-highlight",
+    "steoates.autoimport",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "oderwat.indent-rainbow",
+    "yzhang.markdown-all-in-one",
+    "shd101wyy.markdown-preview-enhanced",
+    "leizongmin.node-module-intellisense",
+    "eg2.vscode-npm-script",
+    "christian-kohler.npm-intellisense",
+    "42crunch.vscode-openapi",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "humao.rest-client",
+    "rbbit.typescript-hero",
+    "visualstudioexptteam.vscodeintellicode",
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "firsttris.vscode-jest-runner",
+    "tsandall.opa"
+  ],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [3000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  "postCreateCommand": "sudo chown node src && sudo chown node node_modules && sudo chown node /home/node/.vscode-server/extensions",
+  // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "shutdownAction": "stopCompose",
+  "remoteUser": "node",
+  "features": {
+    "docker-from-docker": "latest",
+    "git": "latest",
+    "git-lfs": "latest",
+  }
+}
