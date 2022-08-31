@@ -59,7 +59,6 @@ describe('slidingLogs test suite', () => {
       newReqPerUser(rndSub, { id: nanoid(), timestamp: new Date() });
     }
     const reqs = currentRequests();
-    console.log(JSON.stringify(reqs));
     expect(reqs[rndSub].length).toBe(30);
     expect(checkUserWindow(rndSub)).toBeTruthy();
   });
