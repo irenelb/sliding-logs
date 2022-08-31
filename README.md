@@ -2,26 +2,22 @@
 
 ![logo](logo.png)
 
-<h1>Fixed window counter</h1>
+<h1>Sliding logs</h1>
 
 </center>
 
-### RATE LIMITER 
+### RATE LIMITER
 
-Viene fissato il numero di chiamate che l'utente fa in una finestra temporale.
+Viene fissato il tempo di apertura della finestra.
+Bisogna tener traccia del timestamp di ogni richiesta che fa l'utente, richieste ordinate in base al tempo.
 
-Window: finestra temporale nel quale vengono fatte le chiamate
+Prendi tutte le richieste nell'ultima finestra 60s e controlla se il numero di richieste supera il limite
+Se il numero di richieste è inferiore al limite, registra la richiesta e processala
 
-per ogni utente:
+Se il numero è uguale al limite, droppa la richiesta
 
-10 chiamate al minuto === 60s window
-
-salvare l'id dell'utente e tenere il conto delle chiamate se diventano maggiori del numero di chiamate massimo allora le successive
-chiamate andranno in errore.
-Allo scadere della window verranno resettati i valori a zero.
-
-| PRO 	                    | CONS                          	    |
-|---------------------------|---------------------------------------|
-| facile da implementare 	| Ingiusto imporre una finestra temporale per tutti gli utenti |    
-|                           | Non è affidabile, il server potrebbe processare anche 20 request per 10s per utente se ad esempio l'utente fa le chiamate tra 5s finali della finestra e i 5s iniziali della successiva|
-|                           | Nelle finestre con limite temporale alto l'utente potrebbe effettuare il massimo delle chiamate nei primi minuti ed essere costretto ad aspettare parecchio tempo prima che si apra la finestra successiva|
+| PRO                                                                                                           | CONS                                                                                      |
+| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| metodo più accurato perchè tiene conto della finestra temporale per utente e non una finestra fissa per tutti | non è efficiente a livello di memoria perchè memorizziamo una nuova voce per ogni request |
+| tiene conto dell'attività dell'utente                                                                         | costoso da calcolare,per ogni nuova req bisognerà recuperare le request negli ultimi 60s e calcolare il numero di request già effettuate                                      
+||non è influenzato da un aumento di chiamate verso la fine della finestra visto che non è fissa|

@@ -5,7 +5,7 @@ mongo:
 apis:
   receiver: http://172.17.0.1:4000/receiver/_send
 slidingLogsInfo:
-  size: 20000 #20s
+  size: 20000 #20s 1000 * 20
   maxRequest: 10
   
 
